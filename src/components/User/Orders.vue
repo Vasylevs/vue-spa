@@ -24,7 +24,7 @@
             <v-list-tile-action>
               <v-btn
                 class="primary"
-                :to="'/ad/'+order.id"
+                :to="'/add/'+order.id"
               >Open</v-btn>
             </v-list-tile-action>
           </v-list-tile>

@@ -5,7 +5,7 @@
         <h1 class="text--secondary mb-3">My adds</h1>
         <v-card
           class="elevation-10 mb-3"
-          v-for="add in adds"
+          v-for="add in myAdds"
         >
           <v-layout row>
             <v-flex xs4>
@@ -37,17 +37,9 @@
 <script>
     export default {
       name: 'AddList',
-      data () {
-        return {
-          adds: [
-            {
-              title: '1',
-              description: 'Lorem ipsum dolor sit amet, brute iriure accusata ne mea. Eos suavitate referrentur ad, te duo agam libris qualisque, utroque quaestio accommodare no qui.',
-              promo: false,
-              imageSrc: 'https://vuetifyjs.com/static/doc-images/carousel/squirrel.jpg',
-              id: 1
-            }
-          ]
+      computed: {
+        myAdds () {
+          return this.$store.getters.myAdds
         }
       }
     }

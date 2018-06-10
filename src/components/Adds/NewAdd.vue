@@ -80,8 +80,10 @@
             const add = {
               title: this.title,
               description: this.description,
-              promo: this.promo
+              promo: this.promo,
+              imageSrc: 'https://themeawesome.com/themes/totalpress/wp-content/uploads/2012/12/unicorn-wallpaper.jpg'
             }
+            this.$store.dispatch('createAdd', add)
           }
         }
       }

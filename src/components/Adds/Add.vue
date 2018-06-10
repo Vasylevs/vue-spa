@@ -4,12 +4,12 @@
       <v-flex xs12>
         <v-card>
           <v-card-media
-            src="https://vuetifyjs.com/static/doc-images/carousel/squirrel.jpg"
+            :src="add.imageSrc"
             height="300px"
           ></v-card-media>
           <v-card-text>
-            <h1 class="text--primary">Text</h1>
-            <p>Text description</p>
+            <h1 class="text--primary">{{add.title}}</h1>
+            <p>{{add.description}}</p>
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
@@ -25,8 +25,11 @@
 <script>
     export default {
       name: 'Add',
-      data () {
-        return {
+      props: ['id'],
+      computed: {
+        add () {
+          const id = this.id
+          return this.$store.getters.addById(id)
         }
       }
     }

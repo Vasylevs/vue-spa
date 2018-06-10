@@ -5,12 +5,12 @@
         <v-flex xs12>
           <v-carousel>
             <v-carousel-item
-              v-for="add in adds"
+              v-for="add in promoAdds"
               :src="add.imageSrc"
               :key="add.id"
             >
               <div class="carousel-link">
-                <v-btn class="error" :to="'/'+add.id">{{add.title}}</v-btn>
+                <v-btn class="error" :to="'add/'+add.id">{{add.title}}</v-btn>
               </div>
             </v-carousel-item>
           </v-carousel>
@@ -49,13 +49,12 @@
 <script>
     export default {
       name: 'Home',
-      data () {
-        return {
-          adds: [
-            {title: '1', description: 'Lorem ipsum dolor sit amet, brute iriure accusata ne mea. Eos suavitate referrentur ad, te duo agam libris qualisque, utroque quaestio accommodare no qui. Et percipit laboramus usu, no invidunt verterem nominati mel. Dolorem ancillae an mei, ut putant invenire splendide mel, ea nec propriae adipisci. Ignota salutandi accusamus in sed, et per malis fuisset, qui id ludus appareat.', promo: false, imageSrc: 'https://vuetifyjs.com/static/doc-images/carousel/squirrel.jpg', id: 1},
-            {title: '2', description: 'Lorem ipsum dolor sit amet, brute iriure accusata ne mea. Eos suavitate referrentur ad, te duo agam libris qualisque, utroque quaestio accommodare no qui. Et percipit laboramus usu, no invidunt verterem nominati mel. Dolorem ancillae an mei, ut putant invenire splendide mel, ea nec propriae adipisci. Ignota salutandi accusamus in sed, et per malis fuisset, qui id ludus appareat.', promo: true, imageSrc: 'https://vuetifyjs.com/static/doc-images/carousel/sky.jpg', id: 2},
-            {title: '3', description: 'Lorem ipsum dolor sit amet, brute iriure accusata ne mea. Eos suavitate referrentur ad, te duo agam libris qualisque, utroque quaestio accommodare no qui. Et percipit laboramus usu, no invidunt verterem nominati mel. Dolorem ancillae an mei, ut putant invenire splendide mel, ea nec propriae adipisci. Ignota salutandi accusamus in sed, et per malis fuisset, qui id ludus appareat.', promo: true, imageSrc: 'https://vuetifyjs.com/static/doc-images/carousel/planet.jpg', id: 3}
-          ]
+      computed: {
+        promoAdds () {
+          return this.$store.getters.promoAdds
+        },
+        adds () {
+          return this.$store.getters.adds
         }
       }
     }

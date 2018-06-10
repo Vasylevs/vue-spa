@@ -20,6 +20,7 @@ export default new Router({
     {
       path: '/add/:id',
       name: 'add',
+      props: true,
       component: Add
     },
     {
